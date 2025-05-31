@@ -27,11 +27,21 @@ console.log(`Relayer running. Watching for deposits to ${relayerAddress} on sour
 
 erc20Source.on("Transfer", async (from, to, value, event) => {
   if (to.toLowerCase() !== relayerAddress.toLowerCase()) return;
-  console.log(`Deposit detected: from ${from}, amount ${value.toString()}`);
+  // Display source chain tx and block
+  const sourceTxHash = event.log.transactionHash;
+  const sourceBlockNumber = event.log.blockNumber;
+  console.log(
+    `Deposit detected: from ${from}, amount ${value.toString()}\n` +
+    `Source tx: ${sourceTxHash}, block: ${sourceBlockNumber}`
+  );
   try {
     const tx = await erc20Dest.transfer(from, value);
-    await tx.wait();
-    console.log(`Transferred ${value.toString()} tokens to ${from} on destination chain. Tx: ${tx.hash}`);
+    const receipt = await tx.wait();
+    // Display destination chain tx and block
+    console.log(
+      `Transferred ${value.toString()} tokens to ${from} on destination chain.\n` +
+      `Destination tx: ${tx.hash}, block: ${receipt.blockNumber}`
+    );
   } catch (err) {
     console.error("Transfer failed:", err);
   }

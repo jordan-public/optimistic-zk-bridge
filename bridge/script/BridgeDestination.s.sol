@@ -4,17 +4,36 @@ pragma solidity ^0.8.13;
 import {Script, console} from "forge-std/Script.sol";
 import {BridgeDestination} from "../src/BridgeDestination.sol";
 
-contract BridgeDestinationScript is Script {
-    BridgeDestination public counter;
+contract Deploy is Script {
+    BridgeDestination public bridgeDestination;
 
     function setUp() public {}
 
     function run() public {
-        vm.loadEnv("../vlayer/.env.relayer");
         vm.startBroadcast();
 
+        if (vm.envAddress("RELAYER_ADDRESS").balance < 100 ether) {
+            payable(vm.envAddress("RELAYER_ADDRESS")).transfer(
+                100 ether
+            );
+        }
+
+        if (vm.envAddress("RELAYER_ADDRESS").balance < 100 ether) {
+            payable(vm.envAddress("RELAYER_ADDRESS")).transfer(
+                100 ether
+            );
+        }
+
+        // Print the balanve of the deployer (currently the script runner)
+        console.log("Deployer address:", vm.envAddress("DEPLOYER_ADDRESS"));
+        console.log("Deployer balance:", vm.envAddress("DEPLOYER_ADDRESS").balance);
+        console.log("Relayer address:", vm.envAddress("RELAYER_ADDRESS"));
+        console.log("Relayer balance:", vm.envAddress("RELAYER_ADDRESS").balance);
+
         address relayer = vm.envAddress("RELAYER_ADDRESS");
-        counter = new BridgeDestination(address relayer);
+        bridgeDestination = new BridgeDestination(relayer);
+
+        console.log("BridgeDestination deployed at:", address(bridgeDestination));
 
         vm.stopBroadcast();
     }

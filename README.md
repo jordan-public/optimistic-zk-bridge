@@ -17,9 +17,10 @@ The function of a bridge is to transfer messages, notably assets across differen
 
 |            | Centralized | Consensus | Multisig | Multiparty Computation | Zero Knowledge |
 |------------|-------------|-----------|----------| --- | --- |
-| Speed      | High     | Low   | Medium | Low | Low |
-| Security     | Low     | Medium   | Medium | High  | High   |
-| Cost       | Low      | High   | Medium     | High | High |
+| **Speed**      | High 👍    | Low 👎  | Medium | Low 👎 | Low 👎 |
+| **Security**     | Low 👎    | Medium   | Medium | High 👍 | High 👍  |
+| **Cost**       | Low 👍     | High 👎  | Medium     | High 👎 | High 👎 |
+
 
 
 Using the above we can classify different bridges, for example:

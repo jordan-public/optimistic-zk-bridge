@@ -103,7 +103,7 @@ The implementation uses Vlayer, specifically its Teleport feature. This creates 
 on the destination blockchain the proof is verified, the balance after
 the desired number of blocks was not deposited and if so, the Relayer is punished.
 
-The entire code is written in solidity.
+The code is written in solidity and JavaScript/TypeScript.
 
 ## User Interface
 

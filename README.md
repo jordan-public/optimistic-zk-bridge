@@ -42,8 +42,8 @@ although some competition has appeared lately.
 As our goal is to improve on speed, security and cost, we build on the idea of Across, but replace the less favorable aspects with
 improved technologies.
 
-*ZK bridges*: A ZK bridge would create a proof on one blockchain that the assets were deposited, take the proof to the recipient blockchain, verify it and deposit the counter-value there. This would be safe but slow and expensive. This solution would be churning
-on unnecessary proofs even when the transfer behaves as expected. 
+*ZK bridges* (fictitious): A ZK bridge would create a proof on one blockchain that the assets were deposited, take the proof to the recipient blockchain, verify it and deposit the counter-value there. This would be safe but slow and expensive. *This solution would be churning
+on unnecessary proofs even when the transfer behaves as expected.*
 It would be nice to act only upon misbehavior, and that's what we 
 shall do.
 

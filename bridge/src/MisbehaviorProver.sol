@@ -16,7 +16,7 @@ contract MisbehaviorProver is Prover {
         tokenDest = _tokenDest;
     }
 
-    uint256 constant DEADLINE = 100; // Blocks after which the deposit is considered expired
+    uint256 constant DEADLINE = 1; // Blocks after which the deposit is considered expired
 
     function didNotBridge(address relayer, address _token, address _tokenDest, address _owner, uint256 depositBlockId)
         public

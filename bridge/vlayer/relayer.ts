@@ -10,7 +10,7 @@ const DEST_CHAIN_ID = Number(process.env.DEST_CHAIN_ID!);
 const SOURCE_ERC20_ADDRESS = process.env.SOURCE_ERC20_ADDRESS!;
 const DESTINATION_ERC20_ADDRESS = process.env.DESTINATION_ERC20_ADDRESS!;
 
-const providerSource = new ethers.JsonRpcProvider(SOURCE_RPC, SOURCE_CHAIN_ID);
+const providerSource = new ethers.WebSocketProvider(SOURCE_RPC, SOURCE_CHAIN_ID);
 const providerDest = new ethers.JsonRpcProvider(DEST_RPC, DEST_CHAIN_ID);
 const relayerWalletDest = new ethers.Wallet(RELAYER_PRIVATE_KEY, providerDest);
 

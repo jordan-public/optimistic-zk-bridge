@@ -100,3 +100,8 @@ Proof: {
 ✅ Verification result: success
 Slashing completed successfully!
 ```
+
+And if we try the same again, the failsafe will kick in adn complain with:
+```
+Block already processed
+```

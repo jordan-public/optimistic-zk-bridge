@@ -31,7 +31,7 @@ contract Deploy is Script {
         console.log("Relayer balance:", vm.envAddress("RELAYER_ADDRESS").balance);
 
         address relayer = vm.envAddress("RELAYER_ADDRESS");
-        bridgeDestination = new BridgeDestination(relayer);
+        bridgeDestination = new BridgeDestination(relayer, vm.envAddress("SOURCE_ERC20_ADDRESS"), vm.envAddress("DESTINATION_ERC20_ADDRESS"));
 
         console.log("BridgeDestination deployed at:", address(bridgeDestination));
 

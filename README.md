@@ -27,17 +27,17 @@ Using the above we can classify different bridges, for example:
 
 *Wormhole*: works with multisig of validators and we can consider it as medium speed, medium security, and high cost. Note that the attack on 2/3 of the validator keys is the reason for the medium security classification.
 
-![wormhole]()
+![wormhole](./docs/wormhole.png)
 
 *LayerZero*: works with consensus based oracle plus relayers that move Merkle Proofs across blockchains. Because of the consensus based oracles, we can consider this bridge low speed, medium security and high cost.
 
-![layer0]()
+![layer0](./docs/layer0.png)
 
 *Across*: works with centralized transfers and claims of correctness to an optimistic oracle (UMA). In the mist likely case, bundles of claims are relative low cost. In the very unlikely case of misbehavior,
 a costly dispute and voting process is triggered. In addition, the claims of correctness are bundled for multiple transactions to save on cost, somewhat sacrificing speed. This would be considered high speed, medium security and low cost. Because of this low cost, the 1inch aggregator often puts this bridge first in the preference list,
 although some competition has appeared lately.
 
-![across]()
+![across](./docs/across.png)
 
 As our goal is to improve on speed, security and cost, we build on the idea of Across, but replace the less favorable aspects with
 improved technologies.
@@ -57,10 +57,12 @@ great speed and low cost. Yet security is imposed by the UMA optimistic oracle.
 What if we can keep the optimistic expectation of good behavior in
 Across, but use ZK only when misbehavior is detected in order to rectify it.
 
+![imporove](./docs/improve.png)
+
 With this replacement, we would not even need to make assertions of
 correct behavior - this can be detected by the dissatisfied participant or one or a multitude of watchguard processes. Nice - this eliminates the assertion expenses. 
 
-![solution]()
+![solution](./docs/acrozz.png)
 
 The resulting solution gains on all fonts:
 - It is at least as fast as Across, as an off-chain process(es) is performing the transfers not wasting time on assertions (even if bundled), in addition to the transfers.
@@ -71,7 +73,9 @@ remediation is triggered by the on-chain verification of the ZK proof
 of misbehavior.
 
 In addition, to improve on speed, we would punish the bridge operator(s) for delays depending on the delay of transfer. Finally, if the time limit is reached, a final slashing would occur as well. All this
-is governed by a single ZK proof.
+is governed by a single ZK proof:
+
+![delaypunishment](./docs/delaypunishment.png)
 
 ### Not dealt with
 

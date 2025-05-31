@@ -25,24 +25,24 @@ The function of a bridge is to transfer messages, notably assets across differen
 
 Using the above we can classify different bridges, for example:
 
-*Wormhole*: works with multisig of validators and we can consider it as medium speed, medium security, and high cost. Note that the attack on 2/3 of the validator keys is the reason for the medium security classification.
+***Wormhole***: works with multisig of validators and we can consider it as medium speed, medium security, and high cost. Note that the attack on 2/3 of the validator keys is the reason for the medium security classification:
 
 ![wormhole](./docs/wormhole.png)
 
-*LayerZero*: works with consensus based oracle plus relayers that move Merkle Proofs across blockchains. Because of the consensus based oracles, we can consider this bridge low speed, medium security and high cost.
+***LayerZero***: works with consensus based oracle plus relayers that move Merkle Proofs across blockchains. Because of the consensus based oracles, we can consider this bridge low speed, medium security and high cost:
 
 ![layer0](./docs/layer0.png)
 
-*Across*: works with centralized transfers and claims of correctness to an optimistic oracle (UMA). In the mist likely case, bundles of claims are relative low cost. In the very unlikely case of misbehavior,
+***Across***: works with centralized transfers and claims of correctness to an optimistic oracle (UMA). In the mist likely case, bundles of claims are relative low cost. In the very unlikely case of misbehavior,
 a costly dispute and voting process is triggered. In addition, the claims of correctness are bundled for multiple transactions to save on cost, somewhat sacrificing speed. This would be considered high speed, medium security and low cost. Because of this low cost, the 1inch aggregator often puts this bridge first in the preference list,
-although some competition has appeared lately.
+although some competition has appeared lately:
 
 ![across](./docs/across.png)
 
 As our goal is to improve on speed, security and cost, we build on the idea of Across, but replace the less favorable aspects with
 improved technologies.
 
-*ZK bridges* (fictitious): A ZK bridge would create a proof on one blockchain that the assets were deposited, take the proof to the recipient blockchain, verify it and deposit the counter-value there. This would be safe but slow and expensive. *This solution would be churning
+***ZK bridges*** (fictitious): A ZK bridge would create a proof on one blockchain that the assets were deposited, take the proof to the recipient blockchain, verify it and deposit the counter-value there. This would be safe but slow and expensive. *This solution would be churning
 on unnecessary proofs even when the transfer behaves as expected.*
 It would be nice to act only upon misbehavior, and that's what we 
 shall do.

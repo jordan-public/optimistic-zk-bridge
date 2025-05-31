@@ -42,7 +42,7 @@ contract Deploy is Script {
         console.log("MisbehaviorProver deployed at:", address(misbehaviorProver));
 
         // Deploy the BridgeDestination contract which contains the verifier
-        BridgeDestination _bridgeDestination = new BridgeDestination(relayer, vm.envAddress("SOURCE_ERC20_ADDRESS"), vm.envAddress("DESTINATION_ERC20_ADDRESS"));
+        BridgeDestination _bridgeDestination = new BridgeDestination(address(misbehaviorProver), vm.envAddress("SOURCE_ERC20_ADDRESS"), vm.envAddress("DESTINATION_ERC20_ADDRESS"));
 
         console.log("BridgeDestination deployed at:", address(_bridgeDestination));
 

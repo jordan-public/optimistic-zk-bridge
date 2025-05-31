@@ -31,15 +31,16 @@ contract BridgeDestination is Verifier {
     // immediately after the deposit is made, which would allow him to avoid slashing.
 
     // Called by user if funds not received on destination chain
-    function slashWithProof(Proof calldata, uint256 blockId, address depositor, uint256 amount, address relayer, address token, address tokenDest)
+    // proof(), relayer, token, tokenDest, _owner, depositBlockId, newBalance
+    function slashWithProof(Proof calldata, address relayer, address token, address tokenDest, address depositor, uint256 blockId, uint256 amount)
     public onlyVerified(_prover, MisbehaviorProver.didNotBridge.selector) {
         require(!processedBlocks[blockId], "Block already processed");
         processedBlocks[blockId] = true;
         require(token == _token, "Invalid token");
         require(tokenDest == _tokenDest, "Invalid destination token");
         uint256 payout = (amount * 110) / 100; // 110% of deposited amount
-        require(IERC20(tokenDest).balanceOf(relayer) >= payout, "Insufficient reserve");
-        require(IERC20(tokenDest).transfer(depositor, payout), "Token transfer failed");
+        // require(IERC20(tokenDest).balanceOf(relayer) >= payout, "Insufficient reserve");
+        // require(IERC20(tokenDest).transfer(depositor, payout), "Token transfer failed");
         emit Claimed(depositor, amount, payout - amount);
     }
 }

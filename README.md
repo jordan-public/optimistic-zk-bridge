@@ -72,10 +72,22 @@ gas cost of the asset transfers. There is no other on-chain operation.
 remediation is triggered by the on-chain verification of the ZK proof
 of misbehavior.
 
+## Economic Incentive
+
+The bridge (Relayer) shall charge a nominal fee for the transfer. Part of that fee would go to the protocol.
+
+If the transfer does not occur, the Relayer should be slashed. This means that
+a forceful fund transfer from the Relayer's committed reserves would be automatically transferred to the user, in addition to the slashing fee that would be shared between the user as damages and the protocol as profit.
+
 In addition, to improve on speed, we would punish the bridge operator(s) for delays depending on the delay of transfer. Finally, if the time limit is reached, a final slashing would occur as well. All this
 is governed by a single ZK proof:
 
 ![delaypunishment](./docs/delaypunishment.png)
+
+### Vlayer Incentive for Hope of Never to be Used
+
+Part of the protocol fees would be distributed to Vlayer. The purpose of this is to make sure Vlayer is compensated for operating their network even though
+they are hopefully never used.
 
 ### Not dealt with
 

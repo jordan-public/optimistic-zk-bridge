@@ -59,3 +59,44 @@ which shows:
 33333
 when converted to decimal, as expected.
 **The bridging is successful.**
+
+### Slashing
+
+Now let's kill the bridge process to see slashing. 
+
+Then pay to the bridge:
+```
+./transfer_token_source.sh 0x851356ae760d987E095750cCeb3bC6014560891C 0x70997970C51812dc3A010C7d01b50e0d17dc79C8 222222
+```
+
+Then we can slash the bridge:
+```
+bun run slash:dev
+```
+and see the relayer get slashed:
+```
+$ VLAYER_ENV=dev bun run slash.ts
+Proof: {
+  seal: {
+    verifierSelector: "0xdeafbeef",
+    seal: [ "0x8322b69eeee691a468ef2e844df08001c24426e2b83cc20fbde8ec924fa32c7c", "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "0x0000000000000000000000000000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "0x0000000000000000000000000000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "0x0000000000000000000000000000000000000000000000000000000000000000", "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ],
+    mode: 1,
+  },
+  callGuestId: "0xdcb00648ecc90d8bfe92aa8d51061beb0bcb110d274fc4a517e526574233d36b",
+  length: 896,
+  callAssumptions: {
+    proverContractAddress: "0x663e903ff15a0e911258cea2116b2071e80fed68",
+    functionSelector: "0x1ce6dc81",
+    settleChainId: "0x7a6a",
+    settleBlockNumber: "0x34",
+    settleBlockHash: "0xd9f5d336f513c7a9bbb6b81fe06c46adcb280a1d84bc92deb54d7134b6030452",
+  },
+}
+⏳ Verifying...
+✅ Verification result: success
+Slashing completed successfully!
+```

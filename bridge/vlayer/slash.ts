@@ -89,3 +89,4 @@ const receipt = await publicClient.waitForTransactionReceipt({
 });
 
 console.log(`✅ Verification result: ${receipt.status}`);
+console.log('Slashing completed successfully!');

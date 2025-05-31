@@ -25,3 +25,9 @@ Then run the relayer:
 cd bridge/vlayer
 bun run relayer:dev
 ```
+
+Let's transfer some tokens. Pay to the bridge on the source blockchain:
+```
+./transfer_token_source.sh <SOURCE_ERC20_ADDRESS> <RELAYER_ADDRESS> 12345
+```
+

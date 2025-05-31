@@ -15,15 +15,15 @@ contract CreateToken is Script {
         console.log("MockERC20 deployed at:", address(token));
 
         token.mint(
-            vm.envAddress("DEPLOYER_ADDRESS"),
-            100 * 10 ** 18 // Mint 1 million tokens to the deployer
+            address(this),
+            100 * 10 ** 18 // Mint 100 tokens to the deployer
         );
-        console.log("Deployer address:", vm.envAddress("DEPLOYER_ADDRESS"));
-        console.log("Deployer balance:", token.balanceOf(vm.envAddress("DEPLOYER_ADDRESS")));
+        console.log("Deployer address:", address(this));
+        console.log("Deployer balance:", token.balanceOf(address(this)));
 
         token.mint(
             vm.envAddress("RELAYER_ADDRESS"),
-            10000 * 10 ** 18 // Mint 1 million tokens to the relayer
+            10000 * 10 ** 18 // Mint 10,000 tokens to the relayer
         );
         console.log("Relayer address:", vm.envAddress("RELAYER_ADDRESS"));
         console.log("Relayer balance:", token.balanceOf(vm.envAddress("RELAYER_ADDRESS")));

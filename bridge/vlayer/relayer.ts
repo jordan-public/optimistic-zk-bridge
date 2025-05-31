@@ -7,7 +7,8 @@ const SOURCE_RPC = process.env.SOURCE_RPC!;
 const DEST_RPC = process.env.DEST_RPC!;
 const SOURCE_CHAIN_ID = Number(process.env.SOURCE_CHAIN_ID!);
 const DEST_CHAIN_ID = Number(process.env.DEST_CHAIN_ID!);
-const ERC20_ADDRESS = process.env.ERC20_ADDRESS!;
+const SOURCE_ERC20_ADDRESS = process.env.SOURCE_ERC20_ADDRESS!;
+const DESTINATION_ERC20_ADDRESS = process.env.DESTINATION_ERC20_ADDRESS!;
 
 const providerSource = new ethers.JsonRpcProvider(SOURCE_RPC, SOURCE_CHAIN_ID);
 const providerDest = new ethers.JsonRpcProvider(DEST_RPC, DEST_CHAIN_ID);
@@ -19,8 +20,8 @@ const ERC20_ABI = [
 ];
 
 const relayerAddress = relayerWalletDest.address;
-const erc20Source = new ethers.Contract(ERC20_ADDRESS, ERC20_ABI, providerSource);
-const erc20Dest = new ethers.Contract(ERC20_ADDRESS, ERC20_ABI, relayerWalletDest);
+const erc20Source = new ethers.Contract(SOURCE_ERC20_ADDRESS, ERC20_ABI, providerSource);
+const erc20Dest = new ethers.Contract(DESTINATION_ERC20_ADDRESS, ERC20_ABI, relayerWalletDest);
 
 console.log(`Relayer running. Watching for deposits to ${relayerAddress} on source chain...`);
 

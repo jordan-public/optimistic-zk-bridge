@@ -87,7 +87,25 @@ Yet, bridges that operate by locking hard assets on the input blockchain and min
 
 ## Implementation
 
+The implementation uses Vlayer, specifically its Teleport feature. This creates a proof that on the input blockchain the asset was deposited. Then,
+on the destination blockchain the proof is verified, the balance after
+the desired number of blocks was not deposited and if so, the Relayer is punished.
 
+The entire code is written in solidity.
+
+## User Interface
+
+There is no need for a web front end. Each pair of input/output assets corresponds to a deployed contract, which can be displayed to the user 
+as a destination address / QR code for deposit of input funds. The user can send
+the funds to the address shown in the QR code, using any wallet, preferably
+on a mobile device. As soon as the funds are received, the destination funds
+should appear on the same wallet address, but on the destination blockchain.
+
+If the funds do not arrive timely on the destination chain the affected user can
+initiate punishment or slashing after the deadline:
+```
+complain <bridge contract address> <user address>
+```
 
 ## Future Work
 

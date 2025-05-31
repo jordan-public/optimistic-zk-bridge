@@ -22,6 +22,14 @@ contract BridgeDestination is Verifier {
         _tokenDest = tokenDest;
     }
 
+    // Staking issue ignored for the purpose of simplicity:
+    // The relayer has all his funds in his own address, but in order to operate the bridge,
+    // he needs to authorize the slasher to transfer funds for slashing. In a real world scenario,
+    // the relayer would need to stake some funds in the slasher contract, which would be used
+    // to pay the depositor in case of misbehavior. In addition the relayer should not be able to withdraw
+    // the funds for a pre-determined period of time in order to prevent him from withdrawing the funds
+    // immediately after the deposit is made, which would allow him to avoid slashing.
+
     // Called by user if funds not received on destination chain
     function slashWithProof(Proof calldata, uint256 blockId, address depositor, uint256 amount, address relayer, address token, address tokenDest)
     public onlyVerified(_prover, MisbehaviorProver.didNotBridge.selector) {

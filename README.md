@@ -119,6 +119,22 @@ initiate punishment or slashing after the deadline:
 complain <bridge contract address> <user address>
 ```
 
+Shortly, this is how the user interface looks:
+
+Bridge:
+
+From: Ethereum
+
+To: Optimism
+
+Source token: 0x851356ae760d987E095750cCeb3bC6014560891C
+
+Destination token: 0x1D55838a9EC169488D360783D65e6CD985007b72
+
+![qrsample](./docs/qrsample.png)
+Deposit address: 0x70997970C51812dc3A010C7d01b50e0d17dc79C8
+
+
 ## Future Work
 
 General messages can be transferred, not just assets. As it is hard to determine the value of such messages, a reserve or even insurance can be provided, up to a pre-specified cap of value. This would give the message owners a limit on the potential loss of recovery, but make the generic message passing feasible.

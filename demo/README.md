@@ -1,6 +1,6 @@
 # Demo and Video
 
-The demo video can be found [here]() and on [YouTube]().
+The demo video can be found [here](./Acrozz.mp4) and on [YouTube](https://youtu.be/K3eV4UeGP48).
 
 ## Deployment
 

@@ -7,7 +7,7 @@ import {Verifier} from "vlayer-0.1.0/Verifier.sol";
 
 import {IERC20} from "openzeppelin-contracts/token/ERC20/IERC20.sol";
 
-contract BridgeDestination is Verifier {
+contract BridgeDestination /*is Verifier*/ {
     address public _prover;
     address public _token;
     address public _tokenDest;
@@ -32,8 +32,8 @@ contract BridgeDestination is Verifier {
 
     // Called by user if funds not received on destination chain
     // proof(), relayer, token, tokenDest, _owner, depositBlockId, newBalance
-    function slashWithProof(Proof calldata, address relayer, address token, address tokenDest, address depositor, uint256 blockId, uint256 amount)
-    public onlyVerified(_prover, MisbehaviorProver.didNotBridge.selector) {
+    function slashWithProof(/*Proof calldata,*/ address relayer, address token, address tokenDest, address depositor, uint256 blockId, uint256 amount)
+    public /*onlyVerified(_prover, MisbehaviorProver.didNotBridge.selector)*/ {
         require(!processedBlocks[blockId], "Block already processed");
         processedBlocks[blockId] = true;
         require(token == _token, "Invalid token");

@@ -4,7 +4,24 @@ The demo video can be found [here](./Acrozz.mp4) and on [YouTube](https://youtu.
 
 ## Deployment
 
+The following chains are missing the Vlayer Teleport integration. However, I was able to bypass the
+prover and verifier and mock them up, and deploy the contracts on the following testnets. To see what was mocked up, switch to the branch "deployments" of this repo:
+
+### Flow
+
+MisbehaviorProver deployed at: 0x0BC0d4533D9ecFFd21EEd49CbdFA677a384Fa96d
+
+BridgeDestination deployed at: 0x43eA72b2c65b1e8A44150B1A438751e196B5C6F5
+
+### Rootstock
+
+MisbehaviorProver deployed at: <EvmError: OutOfFunds>
+
+BridgeDestination deployed at: <EvmError: OutOfFunds>
+
 ## How to test
+
+Here are the steps:
 
 ### Set up
 

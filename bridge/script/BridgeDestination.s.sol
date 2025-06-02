@@ -13,17 +13,17 @@ contract Deploy is Script {
     function run() public {
         vm.startBroadcast();
 
-        if (vm.envAddress("RELAYER_ADDRESS").balance < 100 ether) {
-            payable(vm.envAddress("RELAYER_ADDRESS")).transfer(
-                100 ether
-            );
-        }
+        // if (vm.envAddress("RELAYER_ADDRESS").balance < 100 ether) {
+        //     payable(vm.envAddress("RELAYER_ADDRESS")).transfer(
+        //         100 ether
+        //     );
+        // }
 
-        if (vm.envAddress("RELAYER_ADDRESS").balance < 100 ether) {
-            payable(vm.envAddress("RELAYER_ADDRESS")).transfer(
-                100 ether
-            );
-        }
+        // if (vm.envAddress("RELAYER_ADDRESS").balance < 100 ether) {
+        //     payable(vm.envAddress("RELAYER_ADDRESS")).transfer(
+        //         100 ether
+        //     );
+        // }
 
         // Print the balance of the deployer (currently the script runner)
         console.log("Deployer address:", vm.envAddress("DEPLOYER_ADDRESS"));

@@ -15,9 +15,9 @@ BridgeDestination deployed at: 0x43eA72b2c65b1e8A44150B1A438751e196B5C6F5
 
 ### Rootstock
 
-MisbehaviorProver deployed at: <EvmError: OutOfFunds>
+MisbehaviorProver deployed at: 0xB12b792AccD473F9C4A35787eEcd46529249D0cb
 
-BridgeDestination deployed at: <EvmError: OutOfFunds>
+BridgeDestination deployed at: 0xCE1De27853eF6C70cd4c35FB94147F9ED25315E0
 
 ## How to test
 

@@ -1,3 +1,9 @@
+[This project, (Acrozz: OptZKBridge)](https://ethglobal.com/showcase/acrozz-optzkbridge-tgpfi) won the following prizes at the [ETHGlobal Prague 2025](https://ethglobal.com/events/prague) hackathon:
+
+🏆 [vlayer - Best use of Time Travel OR Teleport](https://ethglobal.com/showcase/acrozz-optzkbridge-tgpfi)
+
+🏆 [Rootstock - Freestyle Track 1st place](https://ethglobal.com/showcase/acrozz-optzkbridge-tgpfi)
+
 # Optimistic ZK Bridge
 
 The demo and video are [here](./demo/README.mk)

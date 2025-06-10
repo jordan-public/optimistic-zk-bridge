@@ -6,7 +6,7 @@
 
 # Optimistic ZK Bridge
 
-The demo and video are [here](./demo/README.mk)
+The demo and video are [here](./demo/README.md)
 
 ## Abstract
 
